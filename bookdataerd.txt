@@ -1,0 +1,20 @@
++-----------+        +----------+        +------------+
+|   Authors | 1    N |   Books  | 1    N | Transactions|
+|-----------|<-------|----------|<-------|------------|
+| AuthorID  |        | BookID   |        | TransactionID|
+| Name      |        | Title    |        | CustomerID   |
+| Biography  |        | ISBN     |        | BookID       |
++-----------+        | Genre    |        | DateBorrowed |
+                     +----------+        | DateReturned |
+                                          +------------+
+                                              |
+                                              |
+                                              N
+                                          +------------+
+                                          |  Customers  |
+                                          |------------|
+                                          | CustomerID  |
+                                          | Name        |
+                                          | Email       |
+                                          | Phone       |
+                                          +------------+

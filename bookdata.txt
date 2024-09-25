@@ -1,0 +1,32 @@
+a. Books Table
+Column Name	Data Type	Constraints
+BookID	INT	PRIMARY KEY, AUTO_INCREMENT
+Title	VARCHAR(255)	NOT NULL
+Genre	VARCHAR(100)	NOT NULL
+AuthorID	INT	FOREIGN KEY REFERENCES Authors(AuthorID)
+ISBN	VARCHAR(13)	UNIQUE, NOT NULL
+PublishedDate	DATE	NOT NULL
+b. Authors Table
+Column Name	Data Type	Constraints
+AuthorID	INT	PRIMARY KEY, AUTO_INCREMENT
+Name	VARCHAR(255)	NOT NULL
+Bio	TEXT	
+c. Customers Table
+Column Name	Data Type	Constraints
+CustomerID	INT	PRIMARY KEY, AUTO_INCREMENT
+FirstName	VARCHAR(100)	NOT NULL
+LastName	VARCHAR(100)	NOT NULL
+Email	VARCHAR(255)	UNIQUE, NOT NULL
+Phone	VARCHAR(15)	
+d. Transactions Table
+Column Name	Data Type	Constraints
+TransactionID	INT	PRIMARY KEY, AUTO_INCREMENT
+CustomerID	INT	FOREIGN KEY REFERENCES Customers(CustomerID)
+BookID	INT	FOREIGN KEY REFERENCES Books(BookID)
+TransactionDate	DATETIME	NOT NULL
+Status	ENUM('Borrowed', 'Returned')	
+
+| Authors | 1 N | Books | 1 N | Transactions| |-----------|<-------|----------|<-------|------------| | AuthorID |
+| BookID | | TransactionID| | Name | | Title | | CustomerID | | Biography | | ISBN | | BookID | +-----------+ |
+Genre | | DateBorrowed | +----------+ | DateReturned | +------------+ | | N +------------+ | Customers |
+ |------------| | CustomerID | | Name | | Email | | Phone | +------------+
